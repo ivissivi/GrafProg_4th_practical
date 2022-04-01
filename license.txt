@@ -1,0 +1,11 @@
+Model Information:
+* title:	Mount Fuji Volcano - Japan
+* source:	https://sketchfab.com/3d-models/mount-fuji-volcano-japan-bb83a647e5a8481d85a4bb33119d40a5
+* author:	Nate Loper   🗺️ ⛏🏺 (https://sketchfab.com/arizonaguide)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "Mount Fuji Volcano - Japan" (https://sketchfab.com/3d-models/mount-fuji-volcano-japan-bb83a647e5a8481d85a4bb33119d40a5) by Nate Loper   🗺️ ⛏🏺 (https://sketchfab.com/arizonaguide) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)

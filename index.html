@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <!-- Include the CesiumJS JavaScript and CSS files -->
+  <script src="https://cesium.com/downloads/cesiumjs/releases/1.91/Build/Cesium/Cesium.js"></script>
+  <link href="https://cesium.com/downloads/cesiumjs/releases/1.91/Build/Cesium/Widgets/widgets.css" rel="stylesheet">
+</head>
+<body>
+  <div id="cesiumContainer"></div>
+  <script>
+    Cesium.Ion.defaultAccessToken = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJqdGkiOiIyNDEyZmViNy0wNDgyLTQxYTEtYTkyOC0yZDk2MGQyODY1ZjgiLCJpZCI6ODc4NjIsImlhdCI6MTY0ODczOTY3OH0.GlyUjWZUU9T208UcTth4GCVJmw8StX-VRM7hswsEfKA';
+    const viewer = new Cesium.Viewer('cesiumContainer', {
+      terrainProvider: Cesium.createWorldTerrain(),
+      terrainExaggeration: 2,
+      sceneMode: Cesium.SceneMode.SCENE3D,
+      mapProjection: new Cesium.WebMercatorProjection(),
+      shadows: false
+    });
+    const buildingTileset = viewer.scene.primitives.add(Cesium.createOsmBuildings());   
+    viewer.camera.flyTo({
+      destination : Cesium.Cartesian3.fromDegrees(25.339336, 57.893891, 400),
+      orientation : {
+        heading : Cesium.Math.toRadians(0.0),
+        pitch : Cesium.Math.toRadians(-15.0),
+      }
+    });
+
+    viewer.scene.canvas.addEventListener('contextmenu', (event) => {
+      event.preventDefault();
+      const mousePosition  = new Cesium.Cartesian2(event.clientX, event.clientY);
+      const selectedLocation = viewer.scene.pickPosition(mousePosition);
+
+	 setMarkerInPos(Cesium.Cartographic.fromCartesian(selectedLocation));
+    }, false);
+
+    function setMarkerInPos(positionCartographic){
+    viewer.pickTranslucentDepth = true;
+    const locationMarker = viewer.entities.add({
+      position : Cesium.Cartesian3.fromRadians(positionCartographic.longitude, positionCartographic.latitude, -450),
+      model : {
+          uri : 'scene.gltf',
+          scale: 0.25
+      }
+    }); 
+}
+
+  </script>
+ </div>
+</body>
+</html>
